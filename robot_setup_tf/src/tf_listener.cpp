@@ -1,5 +1,6 @@
 #include <ros/ros.h>
-#include <geometry_msgs/PointStamped.h> #include <tf/transform_listener.h>
+#include <geometry_msgs/PointStamped.h> 
+#include <tf/transform_listener.h>
 
 void transformPoint(const tf::TransformListener& listener){
   //we'll create a point in the base_laser frame that we'd like to transform to the base_link frame
@@ -21,14 +22,14 @@ void transformPoint(const tf::TransformListener& listener){
 
     ROS_INFO(
         "base_laser: (%.2f, %.2f. %.2f) ---> "
-	"base_link: (%.2f, %.2f, %.2f) at time %.2f",
+        "base_link: (%.2f, %.2f, %.2f) at time %.2f",
         laser_point.point.x, 
-	laser_point.point.y, 
-	laser_point.point.z,
+        laser_point.point.y, 
+        laser_point.point.z,
         base_point.point.x, 
-	base_point.point.y, 
-	base_point.point.z, 
-	base_point.header.stamp.toSec()
+        base_point.point.y, 
+        base_point.point.z, 
+        base_point.header.stamp.toSec()
    );
   }
   catch(tf::TransformException& ex){

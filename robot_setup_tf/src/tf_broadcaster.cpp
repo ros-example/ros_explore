@@ -10,14 +10,13 @@ int main(int argc, char** argv){
   tf::TransformBroadcaster broadcaster;
 
   while(n.ok()){
-    broadcaster.sendTransform(
-      tf::StampedTransform(
+      broadcaster.sendTransform(
+        tf::StampedTransform(
         tf::Transform(  tf::Quaternion(0, 0, 0, 1), /*两个参考系之间的旋转变换*/
-			tf::Vector3(0.1, 0.0, 0.2)),/*坐标系的位移变换*/
-        		ros::Time::now(),
-			"base_link", 
-			"base_laser"
-		      )
+        tf::Vector3(0.1, 0.0, 0.2)),/*坐标系的位移变换*/
+        ros::Time::now(),
+        "base_link", 
+        "base_laser")
       );
     r.sleep();
   }
